@@ -4,7 +4,7 @@ variable "username" {
 provider "random" { # an empty for destroying old resources
 }
 
-resource "null_resource" "random" {
+resource "null_resource" "randomm" {
   triggers = {
     username = var.username
   }
