@@ -26,7 +26,7 @@ output "username" {
 }
 
 # Using multiple workspaces:
-terraform {
+data "terraform_remote_state" "dev-london" {
   backend "remote" {
     hostname = "app.terraform.io"
     organization = "jps"
