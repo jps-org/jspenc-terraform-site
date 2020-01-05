@@ -4,7 +4,7 @@ variable "username" {
 provider "random" { # an empty for destroying old resources
 }
 
-resource "null_resource" "randomm" {
+resource "null_resource" "random" {
   triggers = {
     username = var.username
   }
@@ -30,16 +30,17 @@ data "terraform_remote_state" "backend" {
   backend = "remote" {
     hostname = "app.terraform.io"
     organization = "jps"
+
     workspaces {
       prefix = "jspenc-site-"
     }
   }
 }
 
-output "username" {
+output "username_out" {
   value = data.terraform_remote_state.backend.outputs.username
 }
 
-output "all-dev" {
+output "all_out" {
   value = data.terraform_remote_state.backend.outputs
 }
