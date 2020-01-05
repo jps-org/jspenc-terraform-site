@@ -36,23 +36,23 @@ terraform {
   }
 }
 
-data "terraform_remote_state" "backend" {
-  backend = "remote"
+# data "terraform_remote_state" "backend" {
+#   backend = "remote"
 
-  config = {
-    hostname = "app.terraform.io"
-    organization = "jps"
+#   config = {
+#     hostname = "app.terraform.io"
+#     organization = "jps"
     
-    workspaces = {
-      name = "jspenc-site-dev"
-    }
-  }
-}
+#     workspaces = {
+#       name = "jspenc-site-dev"
+#     }
+#   }
+# }
 
-output "username_out" {
-  value = data.terraform_remote_state.backend.outputs.username
-}
+# output "username_out" {
+#   value = data.terraform_remote_state.backend.outputs.username
+# }
 
-output "all_out" {
-  value = data.terraform_remote_state.backend.outputs
-}
+# output "all_out" {
+#   value = data.terraform_remote_state.backend.outputs
+# }
