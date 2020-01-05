@@ -38,9 +38,9 @@ terraform {
 }
 
 output "username-dev" {
-  value = data.terraform_remote_state.dev.outputs.username
+  value = data.terraform_remote_state.dev-london.outputs.username
 }
 
 output "all-dev" {
-  value = data.terraform_remote_state.dev.outputs
+  value = data.terraform_remote_state.dev-london.outputs
 }
