@@ -26,21 +26,20 @@ output "username" {
 }
 
 # Using multiple workspaces:
-data "terraform_remote_state" "dev-london" {
-  backend "remote" {
+data "terraform_remote_state" "backend" {
+  backend = "remote" {
     hostname = "app.terraform.io"
     organization = "jps"
-
     workspaces {
       prefix = "jspenc-site-"
     }
   }
 }
 
-output "username-dev" {
-  value = data.terraform_remote_state.dev-london.outputs.username
+output "username" {
+  value = data.terraform_remote_state.backend.outputs.username
 }
 
 output "all-dev" {
-  value = data.terraform_remote_state.dev-london.outputs
+  value = data.terraform_remote_state.backend.outputs
 }
