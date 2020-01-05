@@ -25,14 +25,14 @@ output "username" {
   value = "Username is ${var.username}. Extra text."
 }
 
-data "terraform_remote_state" "dev" {
-  backend = "remote"
-  workspace = "dev"
-  config = {
+# Using multiple workspaces:
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
     organization = "jps"
-    workspaces = {
-      # name = "minimum-dev"
-      prefix = "minimum-"
+
+    workspaces {
+      prefix = "jspenc-site-"
     }
   }
 }
