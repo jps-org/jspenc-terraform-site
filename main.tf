@@ -33,7 +33,7 @@ data "terraform_remote_state" "backend" {
     organization = "jps"
     
     workspaces = {
-      prefix = "jspenc-site-"
+      name = "jspenc-site-dev"
     }
   }
 }
